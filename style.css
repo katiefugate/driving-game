@@ -13,3 +13,19 @@
 body {
   margin: 0;
 }
+
+.rotateRight {
+  transform: rotate(360deg);
+}
+
+.rotateLeft {
+  transform: rotate(180deg);
+}
+
+.rotateDown {
+  transform: rotate(90deg);
+}
+
+.rotateUp {
+  transform: rotate(270deg);
+}
