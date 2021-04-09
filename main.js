@@ -35,10 +35,25 @@ function keydownHandler(event) {
 }
 
 var i = 0;
+var k = 0;
 function move() {
-  car.style.left = i + 'px';
-  i = i + 5;
-  data.location.x = i;
+  if (data.position === 'east') {
+    car.style.left = i + 'px';
+    i = i + 5;
+    data.location.x = i;
+  } else if (data.position === 'west') {
+    car.style.left = i + 'px';
+    i = i - 5;
+    data.location.x = i;
+  } else if (data.position === 'south') {
+    car.style.top = k + 'px';
+    k = k + 5;
+    data.location.y = k;
+  } else if (data.position === 'north') {
+    car.style.top = k + 'px';
+    k = k - 5;
+    data.location.y = k;
+  }
 }
 
 document.addEventListener('keydown', keydownHandler);
