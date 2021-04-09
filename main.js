@@ -1,5 +1,6 @@
 var data = {
   position: 'east',
+  started: false,
   location: {
     x: 0,
     y: 0
@@ -7,6 +8,7 @@ var data = {
 };
 
 var car = document.querySelector('.car');
+var intervalId = null;
 
 function keydownHandler(event) {
   if (event.key === 'ArrowRight') {
@@ -22,7 +24,13 @@ function keydownHandler(event) {
     car.className = 'car rotateUp';
     data.position = 'north';
   } else if (event.key === ' ') {
-    setInterval(move, 16);
+    if (data.started === false) {
+      intervalId = setInterval(move, 16);
+      data.started = true;
+    } else {
+      clearInterval(intervalId);
+      data.started = false;
+    }
   }
 }
 
